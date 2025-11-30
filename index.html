@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Portfolio — Khouloud Bouaziz</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Icons (FontAwesome) -->
+  <!-- Font Awesome (icônes) -->
   <script src="https://kit.fontawesome.com/a4f5a1b94f.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAV -->
   <nav class="nav">
-    <div class="nav-container">
-      <div class="logo">Khouloud</div>
+    <div class="nav-inner">
+      <div class="brand">Khouloud Bouaziz</div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
@@ -39,49 +39,132 @@
   <header id="home" class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <h1>Bonjour, je suis <span>Khouloud Bouaziz</span></h1>
-        <p>Data Engineer • Machine Learning • IoT • MLOps — je construis des solutions intelligentes et scalables.</p>
-        <a href="#projects" class="btn">Voir mes projets</a>
+        <h1>Bonjour — je suis <span>Khouloud Bouaziz</span></h1>
+        <p class="lead">Data & Decision Systems Engineer • Spécialisée en IA, LLMs, MLOps et automation intelligente.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#projects">Voir mes projets</a>
+          <a class="btn btn-ghost" href="cv_khouloud_bouaziz.pdf" download>📄 Télécharger CV</a>
+        </div>
       </div>
 
       <div class="hero-media">
         <img src="profile.jpg" alt="Photo Khouloud" class="profile-photo">
+        <div class="quick-info">
+          <div><strong>Email</strong><br><a href="mailto:khouloudbouazizidsd2@gmail.com">khouloudbouazizidsd2@gmail.com</a></div>
+          <div><strong>Location</strong><br>Sfax, Tunisia</div>
+          <div style="margin-top:8px;"><a class="link" href="https://www.linkedin.com/in/khouloud-bouaziz-ba6878245/" target="_blank">LinkedIn</a> · <a class="link" href="https://github.com/khouloudbouaziz-ai" target="_blank">GitHub</a></div>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- PROJECTS -->
   <section id="projects" class="section">
-    <h2>Projects</h2>
+    <h2>Projets</h2>
+    <p class="section-sub">Exemples de travaux académiques et professionnels — code & démonstrations disponibles.</p>
+
     <div class="projects-grid">
+
+      <!-- Project 1 -->
       <article class="card">
-        <div class="card-icon"><i class="fas fa-water"></i></div>
-        <h3>Water Flow Anomaly</h3>
-        <p>Détection en temps réel des fuites dans les réseaux d'eau à partir de données IoT et modèles ML.</p>
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-robot"></i></div>
+          <div class="card-actions">
+            <a class="icon-btn" href="https://github.com/khouloudbouaziz-ai/Smart-QA" target="_blank" title="Voir sur GitHub"><i class="fab fa-github"></i></a>
+            <button class="icon-btn play-btn" data-video="project1.mp4" title="Ouvrir la vidéo"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <h3>Smart QA — Intelligent Test Automation Platform</h3>
+        <p class="muted">React + FastAPI + Quarkus. Plateforme d'automatisation des tests intégrant Playwright et un LLM pour générer automatiquement des cas de test. Authentification avec Microsoft Entra ID, dashboards KPI et reporting.</p>
+        <div class="meta">Final study project — Feb 2025 - Jun 2025</div>
       </article>
 
+      <!-- Project 2 -->
       <article class="card">
-        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>Cyber Attack Detection</h3>
-        <p>Pipeline MLOps pour détection d'attaques en temps réel et alerting.</p>
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-water"></i></div>
+          <div class="card-actions">
+            <a class="icon-btn" href="https://github.com/khouloudbouaziz-ai/water-anomaly" target="_blank" title="Voir sur GitHub"><i class="fab fa-github"></i></a>
+            <button class="icon-btn play-btn" data-video="project2.mp4" title="Ouvrir la vidéo"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <h3>Real-Time Anomaly Detection in Water Flow</h3>
+        <p class="muted">Système de détection en temps réel des fuites et ruptures à partir de données IoT. Modèles : Isolation Forest, LSTM, Local Outlier Factor. Déployé en environnement d'essai.</p>
+        <div class="meta">Digital Research Center — July 2024 - Aug 2024</div>
       </article>
 
+      <!-- Project 3 -->
       <article class="card">
-        <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
-        <h3>Fairness in ML</h3>
-        <p>Automatisation de la détection et mitigation du biais, avec rapports interprétables.</p>
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+          <div class="card-actions">
+            <a class="icon-btn" href="https://github.com/khouloudbouaziz-ai/bias-detection" target="_blank" title="Voir sur GitHub"><i class="fab fa-github"></i></a>
+            <button class="icon-btn play-btn" data-video="project3.mp4" title="Ouvrir la vidéo"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <h3>Evaluation & Mitigation of Ethical Bias in ML</h3>
+        <p class="muted">Utilisation de AIF360, scikit-learn, LIME & SHAP pour auditer et atténuer les biais. Déploiement d'une interface Streamlit pour visualisation et tests.</p>
+        <div class="meta">Academic project — ENET'Com</div>
       </article>
+
+      <!-- Project 4 -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
+          <div class="card-actions">
+            <a class="icon-btn" href="#" target="_blank" title="Voir sur GitHub"><i class="fab fa-github"></i></a>
+            <button class="icon-btn play-btn" data-video="project4.mp4" title="Ouvrir la vidéo"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <h3>Optimization Algorithm for Solar Panel Cleaning Robots</h3>
+        <p class="muted">Algorithme Python pour optimiser les trajectoires et éviter les obstacles, améliorant l'efficacité du nettoyage.</p>
+        <div class="meta">Enova Robotics — Jun 2023 - Jul 2023</div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-smile-beam"></i></div>
+          <div class="card-actions">
+            <a class="icon-btn" href="#" target="_blank" title="Voir sur GitHub"><i class="fab fa-github"></i></a>
+            <button class="icon-btn play-btn" data-video="project5.mp4" title="Ouvrir la vidéo"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <h3>Emotion Classification (NLP)</h3>
+        <p class="muted">Prétraitement NLTK, TF-IDF puis LSTM pour classification d'émotions. Déploiement via Streamlit.</p>
+        <div class="meta">Final Year Project — ENET'Com</div>
+      </article>
+
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT / EXPERIENCE -->
   <section id="about" class="section">
-    <h2>About Me</h2>
-    <p class="about-text">
-      Je suis une étudiante en Data Engineering passionnée par l'intelligence artificielle, le traitement de données et
-      la création de solutions opérationnelles. J'aime transformer des données brutes en insights utiles et construire des
-      systèmes robustes et maintenables.
-    </p>
+    <h2>About & Professional Experience</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Profil</h3>
+        <p>Data & Decision Systems Engineer, spécialisée en Intelligence Artificielle, LLMs et automation intelligente. Passionnée par la transformation de la donnée en solutions à fort impact.</p>
+      </div>
+
+      <div class="about-card">
+        <h3>Expérience professionnelle</h3>
+        <ul class="exp-list">
+          <li>
+            <strong>Smart QA — Intelligent Test Automation Platform</strong><br>
+            Conception & développement full-stack (React, FastAPI, Quarkus). Intégration Playwright, génération automatique de tests par LLM, authentification Microsoft Entra ID, dashboards KPI.
+          </li>
+          <li>
+            <strong>Digital Research Center of Sfax — Intern</strong><br>
+            Réalisation d'un système de détection d'anomalies en temps réel pour la surveillance des réseaux d'eau (Isolation Forest, LSTM).
+          </li>
+          <li>
+            <strong>Enova Robotics — Intern</strong><br>
+            Algorithme d'optimisation des trajectoires pour robots nettoyeurs de panneaux solaires.
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- SKILLS -->
@@ -89,13 +172,15 @@
     <h2>Skills</h2>
     <div class="skills-list">
       <span class="skill">Python</span>
-      <span class="skill">Pandas / NumPy</span>
-      <span class="skill">TensorFlow</span>
+      <span class="skill">TensorFlow / Keras</span>
       <span class="skill">PyTorch</span>
       <span class="skill">Machine Learning</span>
-      <span class="skill">Docker</span>
-      <span class="skill">SQL</span>
+      <span class="skill">Deep Learning</span>
       <span class="skill">MLOps</span>
+      <span class="skill">Docker</span>
+      <span class="skill">FastAPI / React</span>
+      <span class="skill">SQL / NoSQL</span>
+      <span class="skill">Power BI</span>
     </div>
   </section>
 
@@ -103,7 +188,8 @@
   <footer id="contact" class="footer">
     <div class="footer-inner">
       <div>
-        <p>📩 <a href="mailto:khouloud.bouaziz@example.com">khouloud.bouaziz@example.com</a></p>
+        <p>📩 <a href="mailto:khouloudbouazizidsd2@gmail.com">khouloudbouazizidsd2@gmail.com</a></p>
+        <p>📍 Sfax, Tunisia</p>
       </div>
       <div>
         <p>© <span id="year"></span> Khouloud Bouaziz</p>
@@ -111,6 +197,19 @@
     </div>
   </footer>
 
+  <!-- VIDEO MODAL -->
+  <div id="videoModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <button class="modal-close" aria-label="Fermer la vidéo">&times;</button>
+      <video id="modalVideo" controls playsinline>
+        <source id="modalSource" src="" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture vidéo.
+      </video>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
