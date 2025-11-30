@@ -1,37 +1,26 @@
-// Initialisation AOS (animations au scroll)
-AOS.init({
-    duration: 800,
-    easing: 'ease-out-cubic',
-    once: true
-});
+// Basic interaction: year, mobile nav, smooth scroll
+document.addEventListener("DOMContentLoaded", function() {
+  // year in footer
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Navigation active au scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('#navbar a');
+  // mobile nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('nav');
+  toggle?.addEventListener('click', () => {
+    document.body.classList.toggle('nav-open');
+  });
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-        }
+  // smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if (href === "#" || href === "" ) return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      // close mobile nav after click
+      if (document.body.classList.contains('nav-open')) document.body.classList.remove('nav-open');
     });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Smooth scroll pour les ancres
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+  });
 });
