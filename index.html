@@ -1,71 +1,160 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Khouloud Bouaziz</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khouloud Bouaziz | Data & AI Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">Khouloud<span>Bouaziz</span></h1>
-      <ul class="nav-links">
-        <li><a href="#home">Accueil</a></li>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1>KHOULOUD <span>BOUAZIZ</span></h1>
+      <nav>
+        <a href="#about">À propos</a>
+        <a href="#experience">Expérience</a>
+        <a href="#projects">Projets</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+      </div>
+    </div>
   </header>
 
-  <section id="home" class="section home">
-    <div class="home-content">
-      <h2>Salut, je suis <span>Khouloud Bouaziz</span></h2>
-      <p>Data Engineer & AI Enthusiast | Passionnée par la donnée, l’IA et l’innovation intelligente.</p>
-      <a href="#projects" class="btn">Voir mes projets</a>
-    </div>
-  </section>
-
-  <section id="about" class="section about">
-    <h2>À propos</h2>
-    <p>
-      Ingénieure en Data Engineering & Systèmes Décisionnels, curieuse et motivée par les technologies d’Intelligence Artificielle, 
-      le Machine Learning et la valorisation des données. J’aime transformer les données en solutions concrètes 
-      et utiles pour les entreprises et la société.
-    </p>
-  </section>
-
-  <section id="projects" class="section projects">
-    <h2>Mes Projets</h2>
-    <div class="project-container">
-      <div class="project-card">
-        <h3>💧 Anomaly Detection in Water Flow</h3>
-        <p>Détection en temps réel des fuites et anomalies dans les réseaux d’eau à l’aide de modèles d’apprentissage automatique.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>🧠 Fairness & Bias in ML</h3>
-        <p>Étude et automatisation de la détection et la mitigation du biais dans les modèles de Machine Learning.</p>
-      </div>
-
-      <div class="project-card">
-        <h3>📊 Data Dashboard</h3>
-        <p>Création de tableaux de bord dynamiques avec Power BI et Excel pour l’analyse de données.</p>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <img src="photo.jpg" alt="Khouloud Bouaziz" class="profile-pic" data-aos="zoom-in"/>
+      <h2 data-aos="fade-up" data-aos-delay="200">Data & Decision Systems Engineer</h2>
+      <p data-aos="fade-up" data-aos-delay="400">
+        Spécialisée en Intelligence Artificielle, LLMs & Automation Intelligente<br>
+        Passionnée par la transformation des données en solutions impactantes
+      </p>
+      <div class="buttons" data-aos="fade-up" data-aos-delay="600">
+        <a href="#projects" class="btn primary">Voir mes projets</a>
+        <a href="cv_khouloud_bouaziz.pdf" class="btn secondary" download>
+          <i class="fas fa-download"></i> Télécharger CV
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section contact">
-    <h2>Contact</h2>
-    <p>📩 khouloud.bouaziz@example.com</p>
-    <p>🔗 <a href="https://github.com/khouloudbouaziz-ai" target="_blank">Mon GitHub</a></p>
-    <p>🔗 <a href="https://linkedin.com/in/khouloudbouaziz" target="_blank">Mon LinkedIn</a></p>
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 data-aos="fade-up">À propos</h2>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Ingénieure en Data Engineering & Systèmes Décisionnels (ENET'Com 2025).<br>
+        Je combine expertise technique et pensée analytique pour concevoir des solutions intelligentes basées sur l’IA, 
+        les LLMs et l’automatisation avancée dans des environnements agiles.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section bg-light">
+    <div class="container">
+      <h2 data-aos="fade-up">Expérience Professionnelle</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <h3>Smart QA – Plateforme d’Automatisation Intelligente des Tests</h3>
+          <span class="date">Fév 2025 – Juin 2025 • Freedom Of Dev</span>
+          <ul>
+            <li>Full-stack (React + FastAPI + Quarkus)</li>
+            <li>Génération automatique de tests via LLM (Azure DevOps)</li>
+            <li>Playwright + Microsoft Entra ID + Dashboards KPI</li>
+          </ul>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <h3>Détection d’Anomalies Temps Réel – Réseaux d’Eau</h3>
+          <span class="date">Juil–Août 2024 • Centre de Recherche Digitale de Sfax</span>
+          <ul>
+            <li>Isolation Forest, LSTM, LOF</li>
+            <li>Détection précoce de fuites & anomalies de pression</li>
+          </ul>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <h3>Optimisation Robot Nettoyage Panneaux Solaires</h3>
+          <span class="date">Juin–Juil 2023 • Enova Robotics</span>
+          <p>Algorithme Python d’optimisation de trajectoire + évitement d’obstacles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 data-aos="fade-up">Projets & Démonstrations Vidéo</h2>
+      <div class="projects-grid">
+        <!-- Remplace les liens YouTube par tes vraies vidéos -->
+        <div class="project-card" data-aos="flip-left">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+          <h3>Smart QA – Génération de tests par LLM</h3>
+        </div>
+        <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+          <h3>Détection d’Anomalies dans les Réseaux d’Eau</h3>
+        </div>
+        <div class="project-card" data-aos="flip-left" data-aos-delay="400">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+          <h3>Biais Éthique & Fairness en Machine Learning</h3>
+        </div>
+        <div class="project-card" data-aos="flip-left" data-aos-delay="600">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
+          <h3>Classification d’Émotions par NLP</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section bg-light">
+    <div class="container">
+      <h2 data-aos="fade-up">Compétences Techniques</h2>
+      <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill">Python</div><div class="skill">TensorFlow / Keras</div>
+        <div class="skill">LLMs & Prompt Engineering</div><div class="skill">FastAPI</div>
+        <div class="skill">React</div><div class="skill">Quarkus</div>
+        <div class="skill">Playwright</div><div class="skill">Azure DevOps</div>
+        <div class="skill">Docker</div><div class="skill">MLflow</div>
+        <div class="skill">Power BI</div><div class="skill">Git</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 data-aos="fade-up">Contact</h2>
+      <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+        <p><i class="fas fa-envelope"></i> khouloudbouazizidsd2@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +216 93 568 338</p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/khouloudbouaziz" target="_blank">linkedin.com/in/khouloudbouaziz</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/khouloudbouaziz-ai" target="_blank">github.com/khouloudbouaziz-ai</a></p>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Khouloud Bouaziz | Tous droits réservés.</p>
+    <p>© 2025 Khouloud Bouaziz – Tous droits réservés</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
