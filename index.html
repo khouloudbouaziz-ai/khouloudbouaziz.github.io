@@ -4,21 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khouloud Bouaziz - Data Engineer & ML</title>
-    <meta name="description" content="Portfolio de Khouloud Bouaziz - Data Engineer, Machine Learning, MLOps, IoT">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- AOS Animation Library (optionnel mais magnifique) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation fixe -->
     <nav id="navbar">
         <a href="#about">À propos</a>
         <a href="#skills">Skills</a>
@@ -28,31 +20,26 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Header Hero -->
     <header id="home">
         <div class="hero-content" data-aos="fade-up">
-            <img src="assets/photo.jpg" alt="Khouloud Bouaziz" class="profile-img">
+            <!-- Ta photo en base64 (remplace par la tienne si tu veux) -->
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face" alt="Khouloud Bouaziz" class="profile-img">
             <h1>Khouloud Bouaziz</h1>
             <p>Data Engineer • Machine Learning • MLOps • IoT</p>
-            <a href="assets/CV_Khouloud.pdf" download class="btn">Télécharger mon CV</a>
+            <a href="https://example.com/CV_Khouloud.pdf" target="_blank" class="btn">Télécharger mon CV</a>
         </div>
     </header>
 
-    <!-- About -->
     <section id="about" data-aos="fade-up">
         <h2>À propos</h2>
-        <p class="lead">
-            Ingénieure Data passionnée par l’intelligence artificielle, le Machine Learning, l’IoT et les pipelines automatisés.<br>
-            J’aime transformer des données brutes en solutions intelligentes qui ont un impact réel.
-        </p>
+        <p class="lead">Ingénieure Data passionnée par l’IA, le Machine Learning, l’IoT et les pipelines MLOps. J’aime transformer des données brutes en solutions intelligentes qui ont un vrai impact.</p>
     </section>
 
-    <!-- Skills -->
     <section id="skills" data-aos="fade-up">
         <h2>Compétences</h2>
         <div class="skills-grid">
             <div class="skill"><i class="fab fa-python"></i><span>Python</span></div>
-            <div class="skill"><i class="fas fa-brain"></i><span>ML / DL</span></div>
+            <div class="skill"><i class="fas fa-brain"></i><span>ML / Deep Learning</span></div>
             <div class="skill"><i class="fas fa-cloud"></i><span>AWS / GCP</span></div>
             <div class="skill"><i class="fas fa-database"></i><span>SQL / NoSQL</span></div>
             <div class="skill"><i class="fas fa-robot"></i><span>MLOps</span></div>
@@ -62,7 +49,6 @@
         </div>
     </section>
 
-    <!-- Experience -->
     <section id="experience" data-aos="fade-up">
         <h2>Expérience</h2>
         <div class="timeline">
@@ -70,92 +56,71 @@
                 <div class="timeline-content">
                     <h3>Ingénieure Data & ML</h3>
                     <p><strong>Entreprise X</strong> • 2023 - Aujourd’hui</p>
-                    <p>Déploiement de modèles de détection d’anomalies sur AWS SageMaker, pipeline MLOps complet.</p>
+                    <p>Déploiement de modèles sur AWS SageMaker, pipelines MLOps automatisés.</p>
                 </div>
             </div>
             <div class="timeline-item" data-aos="fade-left">
                 <div class="timeline-content">
                     <h3>Stage Data Engineer</h3>
                     <p><strong>Société Y</strong> • 2022 - 2023</p>
-                    <p>Système IoT complet (capteurs → MQTT → InfluxDB → Grafana).</p>
+                    <p>Système IoT complet + dashboard temps réel.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Associatif -->
     <section id="associative" data-aos="fade-up">
         <h2>Engagement associatif</h2>
-        <p class="lead">Membre active de <strong>Tunisia AI</strong> et organisatrice de workshops sur le ML éthique et l’open-source.</p>
+        <p class="lead">Membre active de <strong>Tunisia AI</strong> • Organisation de workshops ML éthique & open-source</p>
     </section>
 
-    <!-- Projects -->
     <section id="projects" data-aos="fade-up">
         <h2>Projets</h2>
         <div class="projects-grid">
             <div class="project" data-aos="zoom-in">
-                <video controls poster="assets/thumbnail1.jpg">
-                    <source src="assets/video_projet1.mp4" type="video/mp4">
+                <video controls poster="https://images.unsplash.com/photo-1639322478082-3d5e2bf6c4dc?w=800">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
                 </video>
                 <div class="project-content">
                     <h3>Détection d’anomalies dans le flux d’eau</h3>
                     <p>Modèle hybride Isolation Forest + LSTM</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">IoT</span>
-                    </div>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">IoT</span></div>
                 </div>
             </div>
-
             <div class="project" data-aos="zoom-in" data-aos-delay="200">
-                <video controls poster="assets/thumbnail2.jpg">
-                    <source src="assets/video_projet2.mp4" type="video/mp4">
+                <video controls poster="https://images.unsplash.com/photo-1518770660439-24edd4c878c9?w=800">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
                 </video>
                 <div class="project-content">
                     <h3>Application IoT capteurs d’eau</h3>
                     <p>ESP32 + MQTT + Dashboard temps réel</p>
-                    <div class="tags">
-                        <span class="tag">IoT</span>
-                        <span class="tag">MQTT</span>
-                        <span class="tag">Streamlit</span>
-                    </div>
+                    <div class="tags"><span class="tag">IoT</span><span class="tag">MQTT</span><span class="tag">Streamlit</span></div>
                 </div>
             </div>
-
             <div class="project" data-aos="zoom-in" data-aos-delay="400">
-                <video controls poster="assets/thumbnail3.jpg">
-                    <source src="assets/video_projet3.mp4" type="video/mp4">
+                <video controls poster="https://images.unsplash.com/photo-1558494956-7ff3910b3559?w=800">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
                 </video>
                 <div class="project-content">
                     <h3>Pipeline MLOps automatisé</h3>
-                    <p>Détection de biais + CI/CD avec MLflow</p>
-                    <div class="tags">
-                        <span class="tag">MLOps</span>
-                        <span class="tag">MLflow</span>
-                        <span class="tag">GitHub Actions</span>
-                    </div>
+                    <p>Détection de biais + CI/CD MLflow</p>
+                    <div class="tags"><span class="tag">MLOps</span><span class="tag">MLflow</span><span class="tag">GitHub Actions</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" data-aos="fade-up">
         <h2>Contact</h2>
         <div class="contact-links">
-            <a href="https://linkedin.com/in/khouloudbouaziz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/khouloudbouaziz" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="mailto:khouloud@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://twitter.com/khouloud" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/khouloudbouaziz" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/votre-pseudo" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:votre@email.com"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
 
-    <footer>
-        © 2025 Khouloud Bouaziz • Made with passion and a lot of coffee
-    </footer>
+    <footer>© 2025 Khouloud Bouaziz • Made with passion</footer>
 
-    <!-- JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
 </body>
