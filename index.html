@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Khouloud Bouaziz | Data & AI Engineer</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- Particles Background -->
+  <!-- Animated Background Particles -->
   <div id="particles-js"></div>
 
-  <!-- Header -->
+  <!-- Fixed Header -->
   <header class="header">
     <div class="container">
       <h1>KHOULOUD <span>BOUAZIZ</span></h1>
       <nav>
         <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
         <a href="#experience">Expérience</a>
         <a href="#projects">Projets</a>
-        <a href="#skills">Compétences</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="dark-mode-toggle">
@@ -33,10 +32,10 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container">
-      <img src="photo.jpg" alt="Khouloud Bouaziz" class="profile-pic" data-aos="zoom-in"/>
+      <img src="photo.jpg" alt="Khouloud Bouaziz" class="profile-pic" data-aos="zoom-in">
       <h2 data-aos="fade-up" data-aos-delay="200">Data & Decision Systems Engineer</h2>
       <p data-aos="fade-up" data-aos-delay="400">
-        Spécialisée en Intelligence Artificielle, LLMs & Automation Intelligente<br>
+        Spécialisée en IA, LLMs & Automation Intelligente | Basée à Sfax, Tunisie<br>
         Passionnée par la transformation des données en solutions impactantes
       </p>
       <div class="buttons" data-aos="fade-up" data-aos-delay="600">
@@ -48,86 +47,153 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- Profil Professionnel -->
   <section id="about" class="section">
     <div class="container">
-      <h2 data-aos="fade-up">À propos</h2>
-      <p data-aos="fade-up" data-aos-delay="200">
-        Ingénieure en Data Engineering & Systèmes Décisionnels (ENET'Com 2025).<br>
-        Je combine expertise technique et pensée analytique pour concevoir des solutions intelligentes basées sur l’IA, 
-        les LLMs et l’automatisation avancée dans des environnements agiles.
+      <h2 data-aos="fade-up">Profil Professionnel</h2>
+      <div class="stats-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat"><span>5+</span> Projets Académiques & Pros</div>
+        <div class="stat"><span>2</span> Stages en IA & Dev</div>
+        <div class="stat"><span>3</span> Langues (Ar, Fr, En)</div>
+        <div class="stat"><span>2</span> Certifications Azure</div>
+      </div>
+      <p data-aos="fade-up" data-aos-delay="400">
+        Ingénieure en Data Engineering & Systèmes Décisionnels (ENET'Com 2025). Je combine expertise technique, pensée analytique et innovation pour créer des solutions intelligentes en IA, LLMs et automatisation agile.
       </p>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="section bg-light">
-    <div class="container">
-      <h2 data-aos="fade-up">Expérience Professionnelle</h2>
-      <div class="timeline">
-        <div class="timeline-item" data-aos="fade-right">
-          <h3>Smart QA – Plateforme d’Automatisation Intelligente des Tests</h3>
-          <span class="date">Fév 2025 – Juin 2025 • Freedom Of Dev</span>
-          <ul>
-            <li>Full-stack (React + FastAPI + Quarkus)</li>
-            <li>Génération automatique de tests via LLM (Azure DevOps)</li>
-            <li>Playwright + Microsoft Entra ID + Dashboards KPI</li>
-          </ul>
-        </div>
-        <div class="timeline-item" data-aos="fade-left">
-          <h3>Détection d’Anomalies Temps Réel – Réseaux d’Eau</h3>
-          <span class="date">Juil–Août 2024 • Centre de Recherche Digitale de Sfax</span>
-          <ul>
-            <li>Isolation Forest, LSTM, LOF</li>
-            <li>Détection précoce de fuites & anomalies de pression</li>
-          </ul>
-        </div>
-        <div class="timeline-item" data-aos="fade-right">
-          <h3>Optimisation Robot Nettoyage Panneaux Solaires</h3>
-          <span class="date">Juin–Juil 2023 • Enova Robotics</span>
-          <p>Algorithme Python d’optimisation de trajectoire + évitement d’obstacles</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 data-aos="fade-up">Projets & Démonstrations Vidéo</h2>
-      <div class="projects-grid">
-        <!-- Remplace les liens YouTube par tes vraies vidéos -->
-        <div class="project-card" data-aos="flip-left">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-          <h3>Smart QA – Génération de tests par LLM</h3>
-        </div>
-        <div class="project-card" data-aos="flip-left" data-aos-delay="200">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-          <h3>Détection d’Anomalies dans les Réseaux d’Eau</h3>
-        </div>
-        <div class="project-card" data-aos="flip-left" data-aos-delay="400">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-          <h3>Biais Éthique & Fairness en Machine Learning</h3>
-        </div>
-        <div class="project-card" data-aos="flip-left" data-aos-delay="600">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
-          <h3>Classification d’Émotions par NLP</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
+  <!-- Compétences Techniques -->
   <section id="skills" class="section bg-light">
     <div class="container">
       <h2 data-aos="fade-up">Compétences Techniques</h2>
       <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
-        <div class="skill">Python</div><div class="skill">TensorFlow / Keras</div>
-        <div class="skill">LLMs & Prompt Engineering</div><div class="skill">FastAPI</div>
-        <div class="skill">React</div><div class="skill">Quarkus</div>
-        <div class="skill">Playwright</div><div class="skill">Azure DevOps</div>
-        <div class="skill">Docker</div><div class="skill">MLflow</div>
-        <div class="skill">Power BI</div><div class="skill">Git</div>
+        <div class="skill-category">
+          <h3>Programmation</h3>
+          <span>Python, Java, C, R, Scala, PHP</span>
+        </div>
+        <div class="skill-category">
+          <h3>IA & ML</h3>
+          <span>Machine Learning, Deep Learning, NLP, LLMs, MLOps</span>
+        </div>
+        <div class="skill-category">
+          <h3>Frameworks</h3>
+          <span>TensorFlow, Keras, scikit-learn, OpenCV, MLflow</span>
+        </div>
+        <div class="skill-category">
+          <h3>Backend/Frontend</h3>
+          <span>Quarkus, Spring Boot, FastAPI, React, HTML/CSS/JS</span>
+        </div>
+        <div class="skill-category">
+          <h3>DevOps & Tests</h3>
+          <span>Azure DevOps, Git, Playwright, Robot Framework</span>
+        </div>
+        <div class="skill-category">
+          <h3>Databases & Viz</h3>
+          <span>MySQL, PostgreSQL, MongoDB, Power BI, Excel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formation -->
+  <section class="section">
+    <div class="container">
+      <h2 data-aos="fade-up">Formation</h2>
+      <div class="timeline" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-item">
+          <h3>National School of Electronics and Telecommunications of Sfax (ENET'Com)</h3>
+          <span class="date">2022 – 2025</span>
+          <p>Engineering Degree in Data Engineering & Decision Systems</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Faculty of Sciences of Sfax (FSS)</h3>
+          <span class="date">2020 – 2022</span>
+          <p>Preparatory Classes – Physics & Chemistry Track</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expérience Professionnelle -->
+  <section id="experience" class="section bg-light">
+    <div class="container">
+      <h2 data-aos="fade-up">Expérience Professionnelle</h2>
+      <div class="timeline" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-item" data-aos="fade-right">
+          <h3>Smart QA – Intelligent Test Automation Platform</h3>
+          <span class="date">Fév 2025 – Juin 2025 • Freedom Of Dev, Sfax</span>
+          <ul>
+            <li>Full-stack (React + FastAPI + Quarkus) avec génération LLM de tests</li>
+            <li>Intégration Playwright & Microsoft Entra ID pour sécurité</li>
+            <li>Dashboards dynamiques pour KPI et traçabilité</li>
+          </ul>
+        </div>
+        <div class="timeline-item" data-aos="fade-left">
+          <h3>Real-Time Anomaly Detection in Water Flow Systems</h3>
+          <span class="date">Juil – Août 2024 • Digital Research Center, Sfax</span>
+          <ul>
+            <li>Système avec Isolation Forest, LSTM, LOF pour monitoring</li>
+            <li>Amélioration précision détection fuites & anomalies pression</li>
+          </ul>
+        </div>
+        <div class="timeline-item" data-aos="fade-right">
+          <h3>Optimization Algorithm for Solar Panel Cleaning Robots</h3>
+          <span class="date">Juin – Juil 2023 • Enova Robotics, Sousse</span>
+          <ul>
+            <li>Algorithme Python pour trajectoires optimales & évitement obstacles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets avec Vidéos -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 data-aos="fade-up">Projets & Démonstrations Vidéo</h2>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+          <h3>Smart QA – Génération de Tests par LLM</h3>
+          <p>Plateforme full-stack pour automatisation tests via IA.</p>
+          <a href="https://github.com/khouloudbouaziz-ai/smart-qa" target="_blank"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+          <h3>Détection d’Anomalies en Temps Réel</h3>
+          <p>Monitoring réseaux d'eau avec ML pour fuites précoces.</p>
+          <a href="https://github.com/khouloudbouaziz-ai/anomaly-detection" target="_blank"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="project-card" data-aos="flip-left" data-aos-delay="300">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+          <h3>Mitigation de Biais Éthiques en ML</h3>
+          <p>Évaluation & correction biais avec AIF360, LIME, SHAP.</p>
+          <a href="https://github.com/khouloudbouaziz-ai/bias-mitigation" target="_blank"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="project-card" data-aos="flip-left" data-aos-delay="400">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
+          <h3>Classification d’Émotions par NLP</h3>
+          <p>Modèle LSTM/TF-IDF déployé sur Streamlit.</p>
+          <a href="https://github.com/khouloudbouaziz-ai/emotion-nlp" target="_blank"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="project-card" data-aos="flip-left" data-aos-delay="500">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" frameborder="0" allowfullscreen></iframe>
+          <h3>Site Web Agence de Voyage Dynamique</h3>
+          <p>Responsive booking avec PHP, HTML/CSS/JS.</p>
+          <a href="https://github.com/khouloudbouaziz-ai/travel-agency" target="_blank"><i class="fab fa-github"></i> Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section bg-light">
+    <div class="container">
+      <h2 data-aos="fade-up">Certifications</h2>
+      <div class="cert-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="cert"><i class="fas fa-certificate"></i> Microsoft Azure Data Fundamentals</div>
+        <div class="cert"><i class="fas fa-certificate"></i> Microsoft Azure AI Fundamentals</div>
       </div>
     </div>
   </section>
@@ -135,12 +201,13 @@
   <!-- Contact -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 data-aos="fade-up">Contact</h2>
+      <h2 data-aos="fade-up">Contactez-moi</h2>
       <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
         <p><i class="fas fa-envelope"></i> khouloudbouazizidsd2@gmail.com</p>
         <p><i class="fas fa-phone"></i> +216 93 568 338</p>
         <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/khouloudbouaziz" target="_blank">linkedin.com/in/khouloudbouaziz</a></p>
         <p><i class="fab fa-github"></i> <a href="https://github.com/khouloudbouaziz-ai" target="_blank">github.com/khouloudbouaziz-ai</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Sfax, Tunisie</p>
       </div>
     </div>
   </section>
@@ -153,8 +220,6 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
