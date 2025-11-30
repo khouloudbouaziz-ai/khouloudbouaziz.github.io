@@ -1,138 +1,164 @@
 /* ------------------------------
-   GLOBAL STYLE
+   GLOBAL
 ------------------------------ */
+:root {
+    --primary: #5a43ff;
+    --secondary: #a88cff;
+    --dark: #0f0f12;
+    --light: #ffffff;
+    --gray: #e8e8e8;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    font-family: "Poppins", Arial, sans-serif;
-    background-color: #f5f6fa;
-    color: #333;
+    font-family: "Poppins", sans-serif;
+    background: var(--gray);
+    color: var(--dark);
+    overflow-x: hidden;
 }
 
-h1, h2, h3 {
-    font-weight: 600;
-}
-
-a {
-    text-decoration: none;
+/* Smooth animations */
+* {
+    transition: 0.3s ease;
 }
 
 /* ------------------------------
    HEADER
 ------------------------------ */
 header {
-    background: linear-gradient(135deg, #0059ff, #7b2fff);
-    color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 90px 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    clip-path: ellipse(150% 70% at 50% 30%);
 }
 
+/* Profile picture */
 header img {
-    width: 160px;
-    height: 160px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border: 5px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
 
 header h1 {
+    font-size: 3rem;
     margin-top: 20px;
-    font-size: 2.8rem;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     opacity: 0.9;
 }
 
+/* Download button */
 .btn-download {
     margin-top: 30px;
-    display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 32px;
+    font-size: 1.1rem;
     background: white;
-    color: #0059ff;
+    border-radius: 12px;
+    color: var(--primary);
     font-weight: bold;
-    border-radius: 10px;
-    transition: 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 5px 20px rgba(255,255,255,0.3);
 }
 
 .btn-download:hover {
-    background: #e8e8e8;
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255,255,255,0.4);
 }
 
 /* ------------------------------
-   SECTIONS
+   SECTION BASE STYLE
 ------------------------------ */
 section {
     max-width: 1100px;
     margin: auto;
-    padding: 50px 20px;
+    padding: 60px 25px;
 }
 
-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #222;
+h2 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    position: relative;
 }
 
-section p {
-    line-height: 1.7;
-    font-size: 1.1rem;
+h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    display: block;
+    border-radius: 5px;
+    margin-top: 8px;
 }
 
 /* ------------------------------
-   PROJECTS
+   PROJECT CARDS (Glass Effect)
 ------------------------------ */
 .project {
-    background: white;
-    padding: 25px;
-    margin-top: 25px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: 0.3s ease;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
 }
 
 .project:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 .project h3 {
     margin-bottom: 8px;
-    color: #333;
+    font-size: 1.5rem;
+    color: var(--primary);
 }
 
 .project p {
+    font-size: 1.05rem;
     opacity: 0.85;
 }
 
-/* Video styling */
+/* Video style */
 .project video {
     width: 100%;
-    border-radius: 12px;
-    margin-top: 15px;
+    border-radius: 15px;
+    margin-top: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 /* ------------------------------
-   FOOTER (OPTIONNEL)
+   FOOTER
 ------------------------------ */
 footer {
-    background: #222;
-    color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 25px;
+    background: var(--dark);
+    color: white;
+    margin-top: 70px;
+    font-size: 1rem;
 }
 
 /* ------------------------------
-   RESPONSIVE DESIGN
+   MOBILE RESPONSIVE
 ------------------------------ */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
     }
+
     header img {
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
+    }
+
+    .project {
+        padding: 20px;
     }
 }
