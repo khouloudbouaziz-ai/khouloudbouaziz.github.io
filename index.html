@@ -3,113 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portefeuille - Khouloud Bouaziz</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-        }
-        header {
-            background: linear-gradient(135deg, #007bff, #6f42c1);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid white;
-        }
-        header h1 {
-            margin-top: 15px;
-            font-size: 2.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-        .btn {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 12px 25px;
-            background: white;
-            color: #007bff;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        h2 {
-            color: #333;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        .project video {
-            width: 100%;
-            border-radius: 12px;
-            margin-top: 10px;
-        }
-    </style>
+    <title>Khouloud Bouaziz - Data Engineer & ML</title>
+    <meta name="description" content="Portfolio de Khouloud Bouaziz - Data Engineer, Machine Learning, MLOps, IoT">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- AOS Animation Library (optionnel mais magnifique) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <img src="photo.jpg" alt="Photo de Khouloud">
-    <h1>Khouloud Bouaziz</h1>
-    <p>Data Engineer • Machine Learning • MLOps • IoT</p>
-    <a href="CV_Khouloud.pdf" download class="btn">📄 Télécharger mon CV</a>
-</header>
+    <!-- Navigation fixe -->
+    <nav id="navbar">
+        <a href="#about">À propos</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Expérience</a>
+        <a href="#associative">Associatif</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-<section id="about">
-    <h2>À propos</h2>
-    <p>
-        Je suis une ingénieure Data passionnée par l’IA, le Machine Learning, 
-        l’IoT et l'analyse de données.  
-        Ce site regroupe mes projets, mon parcours et mes réalisations.
-    </p>
-</section>
+    <!-- Header Hero -->
+    <header id="home">
+        <div class="hero-content" data-aos="fade-up">
+            <img src="assets/photo.jpg" alt="Khouloud Bouaziz" class="profile-img">
+            <h1>Khouloud Bouaziz</h1>
+            <p>Data Engineer • Machine Learning • MLOps • IoT</p>
+            <a href="assets/CV_Khouloud.pdf" download class="btn">Télécharger mon CV</a>
+        </div>
+    </header>
 
-<section id="projects">
-    <h2>Mes Projets</h2>
+    <!-- About -->
+    <section id="about" data-aos="fade-up">
+        <h2>À propos</h2>
+        <p class="lead">
+            Ingénieure Data passionnée par l’intelligence artificielle, le Machine Learning, l’IoT et les pipelines automatisés.<br>
+            J’aime transformer des données brutes en solutions intelligentes qui ont un impact réel.
+        </p>
+    </section>
 
-    <!-- 🔹 PROJET 1 -->
-    <div class="project">
-        <h3>Projet 1 : Détection d’anomalies dans le flux d’eau</h3>
-        <p>Modèle ML et Deep Learning pour détecter les fuites et anomalies.</p>
-        <video controls>
-            <source src="video_projet1.mp4" type="video/mp4">
-        </video>
-    </div>
+    <!-- Skills -->
+    <section id="skills" data-aos="fade-up">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill"><i class="fab fa-python"></i><span>Python</span></div>
+            <div class="skill"><i class="fas fa-brain"></i><span>ML / DL</span></div>
+            <div class="skill"><i class="fas fa-cloud"></i><span>AWS / GCP</span></div>
+            <div class="skill"><i class="fas fa-database"></i><span>SQL / NoSQL</span></div>
+            <div class="skill"><i class="fas fa-robot"></i><span>MLOps</span></div>
+            <div class="skill"><i class="fas fa-microchip"></i><span>IoT</span></div>
+            <div class="skill"><i class="fab fa-docker"></i><span>Docker / K8s</span></div>
+            <div class="skill"><i class="fas fa-chart-line"></i><span>Streamlit / Power BI</span></div>
+        </div>
+    </section>
 
-    <!-- 🔹 PROJET 2 -->
-    <div class="project">
-        <h3>Projet 2 : Application IoT pour capteurs d’eau</h3>
-        <p>Dashboard + capteurs réels envoyant les données en temps réel.</p>
-        <video controls>
-            <source src="video_projet2.mp4" type="video/mp4">
-        </video>
-    </div>
+    <!-- Experience -->
+    <section id="experience" data-aos="fade-up">
+        <h2>Expérience</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-content">
+                    <h3>Ingénieure Data & ML</h3>
+                    <p><strong>Entreprise X</strong> • 2023 - Aujourd’hui</p>
+                    <p>Déploiement de modèles de détection d’anomalies sur AWS SageMaker, pipeline MLOps complet.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-content">
+                    <h3>Stage Data Engineer</h3>
+                    <p><strong>Société Y</strong> • 2022 - 2023</p>
+                    <p>Système IoT complet (capteurs → MQTT → InfluxDB → Grafana).</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- 🔹 PROJET 3 -->
-    <div class="project">
-        <h3>Projet 3 : MLOps - Pipeline automatisé</h3>
-        <p>Pipeline complet d’automatisation pour la détection de biais.</p>
-        <video controls>
-            <source src="video_projet3.mp4" type="video/mp4">
-        </video>
-    </div>
+    <!-- Associatif -->
+    <section id="associative" data-aos="fade-up">
+        <h2>Engagement associatif</h2>
+        <p class="lead">Membre active de <strong>Tunisia AI</strong> et organisatrice de workshops sur le ML éthique et l’open-source.</p>
+    </section>
 
-</section>
+    <!-- Projects -->
+    <section id="projects" data-aos="fade-up">
+        <h2>Projets</h2>
+        <div class="projects-grid">
+            <div class="project" data-aos="zoom-in">
+                <video controls poster="assets/thumbnail1.jpg">
+                    <source src="assets/video_projet1.mp4" type="video/mp4">
+                </video>
+                <div class="project-content">
+                    <h3>Détection d’anomalies dans le flux d’eau</h3>
+                    <p>Modèle hybride Isolation Forest + LSTM</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">IoT</span>
+                    </div>
+                </div>
+            </div>
 
+            <div class="project" data-aos="zoom-in" data-aos-delay="200">
+                <video controls poster="assets/thumbnail2.jpg">
+                    <source src="assets/video_projet2.mp4" type="video/mp4">
+                </video>
+                <div class="project-content">
+                    <h3>Application IoT capteurs d’eau</h3>
+                    <p>ESP32 + MQTT + Dashboard temps réel</p>
+                    <div class="tags">
+                        <span class="tag">IoT</span>
+                        <span class="tag">MQTT</span>
+                        <span class="tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project" data-aos="zoom-in" data-aos-delay="400">
+                <video controls poster="assets/thumbnail3.jpg">
+                    <source src="assets/video_projet3.mp4" type="video/mp4">
+                </video>
+                <div class="project-content">
+                    <h3>Pipeline MLOps automatisé</h3>
+                    <p>Détection de biais + CI/CD avec MLflow</p>
+                    <div class="tags">
+                        <span class="tag">MLOps</span>
+                        <span class="tag">MLflow</span>
+                        <span class="tag">GitHub Actions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" data-aos="fade-up">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="https://linkedin.com/in/khouloudbouaziz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/khouloudbouaziz" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:khouloud@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://twitter.com/khouloud" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Khouloud Bouaziz • Made with passion and a lot of coffee
+    </footer>
+
+    <!-- JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
