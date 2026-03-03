@@ -1,759 +1,524 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Khouloud Bouaziz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #6366f1;
-      --secondary: #8b5cf6;
-      --success: #10b981;
-      --dark: #0f172a;
-      --dark-light: #1e293b;
-      --gray: #64748b;
-      --light: #f1f5f9;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--dark);
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ANIMATED BACKGROUND */
-    .bg-animation {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .particles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      animation: float 20s infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) translateX(0); }
-      33% { transform: translateY(-100px) translateX(50px); }
-      66% { transform: translateY(-200px) translateX(-50px); }
-    }
-
-    /* NAVIGATION */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-      position: relative;
-    }
-
-    .nav-links a:after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.3s;
-    }
-
-    .nav-links a:hover:after {
-      width: 100%;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6rem 2rem 2rem;
-      position: relative;
-    }
-
-    .hero-content {
-      max-width: 1200px;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      animation: fadeInUp 1s ease;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-text h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .hero-text h1 span {
-      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0%, 100% { filter: brightness(1); }
-      50% { filter: brightness(1.3); }
-    }
-
-    .hero-text .subtitle {
-      font-size: 1.25rem;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      padding: 0.875rem 2rem;
-      border-radius: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-    }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .hero-image {
-      position: relative;
-    }
-
-    .profile-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    }
-
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      animation: pulse 3s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .contact-info {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .contact-info a {
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      display: block;
-      margin: 0.5rem 0;
-      transition: color 0.3s;
-    }
-
-    .contact-info a:hover {
-      color: var(--primary);
-    }
-
-    /* PROJECTS SECTION */
-    .section {
-      padding: 6rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.1rem;
-    }
-
-    /* FILTERS */
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 999px;
-      color: #fff;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-weight: 600;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* PROJECT CARDS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.4s;
-      animation: fadeIn 0.6s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
-      border-color: rgba(99, 102, 241, 0.5);
-    }
-
-    .project-preview {
-      position: relative;
-      height: 220px;
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .project-preview::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transform: rotate(45deg);
-      animation: shine-overlay 3s infinite;
-    }
-
-    @keyframes shine-overlay {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    .project-icon {
-      font-size: 4rem;
-      opacity: 0.3;
-    }
-
-    .play-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .project-card:hover .play-overlay {
-      opacity: 1;
-    }
-
-    .play-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--primary);
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .play-btn:hover {
-      transform: scale(1.1);
-      background: var(--secondary);
-    }
-
-    .project-content {
-      padding: 1.5rem;
-    }
-
-    .project-tags {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .tag-react { background: #61dafb; color: #000; }
-    .tag-python { background: #3776ab; color: #fff; }
-    .tag-ml { background: #ff6f00; color: #fff; }
-    .tag-api { background: #10b981; color: #fff; }
-
-    .project-content h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      color: #fff;
-    }
-
-    .project-content p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .project-meta {
-      display: flex;
-      gap: 1rem;
-      margin: 1rem 0;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .project-actions {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .action-btn {
-      flex: 1;
-      padding: 0.625rem;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .action-btn:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* STATS */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-
-    .stat-card {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .stat-label {
-      color: rgba(255, 255, 255, 0.7);
-      margin-top: 0.5rem;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-text h1 {
-        font-size: 2.5rem;
-      }
-
-      .cta-buttons {
-        justify-content: center;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Khouloud Bouaziz — AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="bg-animation">
-    <div class="particles" id="particles"></div>
+
+<div id="c"></div>
+<div id="cr"></div>
+<div id="noise"></div>
+
+<!-- ══════ NAV ══════ -->
+<nav class="nav" id="nav">
+  <div class="nav__i">
+    <a href="#home" class="nav__logo">KB.</a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#" class="nav__dl" id="cvBtn" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download CV
+    </a>
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero" id="home">
+  <div class="hero__bg"></div>
+  <div class="hero__grid"></div>
+  <div class="hero__ring" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+
+    <!-- Photo side -->
+    <div class="hero__photo-side">
+      <div class="hero__photo-wrap">
+        <div class="hero__photo-glow"></div>
+        <!-- Replace src with real photo path when available -->
+        <div class="hero__photo" id="photoEl">
+          <div class="hero__photo-initials">KB</div>
+        </div>
+      </div>
+
+      <div class="hero__info-strip">
+        <div class="hero__info-row">
+          <div class="hero__info-icon">📍</div>
+          <span class="hero__info-text">Sfax, Tunisia 🇹🇳</span>
+        </div>
+        <div class="hero__info-row">
+          <div class="hero__info-icon">✉</div>
+          <span class="hero__info-text"><a href="/cdn-cgi/l/email-protection#4d26252238212238292f22382c37243724293e297f0d2a202c2421632e2220"><span class="__cf_email__" data-cfemail="583330372d34372d3c3a372d39223122313c2b3c6a183f35393134763b3735">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="hero__info-row">
+          <div class="hero__info-icon">☎</div>
+          <span class="hero__info-text">+216 93 568 338</span>
+        </div>
+        <div class="hero__info-row">
+          <div class="hero__info-icon">🎓</div>
+          <span class="hero__info-text">ENET'Com — Data Engineering</span>
+        </div>
+      </div>
+
+      <div class="hero__available">
+        <span class="hero__avail-dot"></span>
+        Available for opportunities
+      </div>
+    </div>
+
+    <!-- Text side -->
+    <div class="hero__text">
+      <p class="hero__greeting">Hello, I'm</p>
+
+      <h1 class="hero__name">
+        <span class="n1">Khouloud</span>
+        <span class="n2">Bouaziz</span>
+      </h1>
+
+      <p class="hero__tagline">
+        I'm a <strong>Data & Decision Systems Engineer</strong> who builds
+        AI systems that think, adapt, and deliver real-world impact —
+        from <strong>LLMs and MLOps</strong> to intelligent automation.
+      </p>
+
+      <div class="hero__chips">
+        <span class="hchip hchip--amber">AI Engineering</span>
+        <span class="hchip hchip--teal">LLMs & MLOps</span>
+        <span class="hchip">Full-Stack</span>
+        <span class="hchip">Computer Vision</span>
+        <span class="hchip">NLP</span>
+      </div>
+
+      <div class="hero__actions">
+        <a href="#work" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+          See My Work
+        </a>
+        <a href="#" class="btn-secondary" id="cvBtnHero" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+      </div>
+
+      <div class="hero__stats">
+        <div>
+          <div class="hstat-val"><span data-count="15">0</span><sup>+</sup></div>
+          <div class="hstat-lbl">Projects Built</div>
+        </div>
+        <div class="hstat-sep"></div>
+        <div>
+          <div class="hstat-val"><span data-count="3">0</span></div>
+          <div class="hstat-lbl">Internships</div>
+        </div>
+        <div class="hstat-sep"></div>
+        <div>
+          <div class="hstat-val"><span data-count="3">0</span></div>
+          <div class="hstat-lbl">Certifications</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <nav>
-    <div class="nav-content">
-      <div class="logo">KB</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Bonjour, je suis<br><span>Khouloud Bouaziz</span></h1>
-        <p class="subtitle">Data & Decision Systems Engineer • Spécialisée en IA, LLMs, MLOps et automation intelligente</p>
-        <div class="cta-buttons">
-          <a href="#projects" class="btn btn-primary">
-            🚀 Voir mes projets
+<!-- ══════ ABOUT ══════ -->
+<section id="about">
+  <div class="container">
+    <p class="s-tag s-tag--amber">Who I Am</p>
+    <h2 class="s-h">I turn complex data<br/>into <em>decisions that matter.</em></h2>
+
+    <div class="about__layout">
+
+      <!-- Narrative -->
+      <div class="r-left">
+        <p class="about__para">
+          I'm a final-year engineer at <strong>ENET'Com</strong>, one of Tunisia's top engineering schools,
+          specializing in Data Engineering & Decision Systems. But beyond the degree —
+          I'm someone who genuinely gets excited about making machines smarter.
+        </p>
+
+        <div class="about__highlight">
+          "I don't just build models. I build systems that scale, think, and work in production."
+        </div>
+
+        <p class="about__para">
+          My journey has taken me from <strong>optimizing robot trajectories</strong> at Enova Robotics,
+          to detecting water anomalies in real time at a research center,
+          to building a full <strong>LLM-powered QA platform</strong> that automates test generation from scratch.
+          Each project pushed me further into production-grade AI engineering.
+        </p>
+
+        <p class="about__para">
+          I'm particularly passionate about <strong>responsible AI</strong> — building systems that are not only
+          accurate, but fair, explainable, and trustworthy.
+          That conviction shapes every project I take on.
+        </p>
+
+        <div class="about__values">
+          <div class="about__val r-up">
+            <div class="about__val-icon">🚀</div>
+            <div class="about__val-text">
+              <strong>Ship fast, iterate</strong>
+              <span>Prototypes are starting points, not end goals</span>
+            </div>
+          </div>
+          <div class="about__val r-up">
+            <div class="about__val-icon">⚖️</div>
+            <div class="about__val-text">
+              <strong>Ethical by design</strong>
+              <span>Fairness and explainability built in from day one</span>
+            </div>
+          </div>
+          <div class="about__val r-up">
+            <div class="about__val-icon">🔗</div>
+            <div class="about__val-text">
+              <strong>End-to-end thinking</strong>
+              <span>From raw data to deployed, scalable solutions</span>
+            </div>
+          </div>
+          <div class="about__val r-up">
+            <div class="about__val-icon">🧠</div>
+            <div class="about__val-text">
+              <strong>Always learning</strong>
+              <span>NVIDIA, Microsoft certified — continuously growing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick facts aside -->
+      <div class="about__aside r-up">
+
+        <div class="about__fact-card">
+          <div class="about__fact-label">🎓 Education</div>
+          <div class="edu-item">
+            <strong>Engineering Degree — Data & Decision Systems</strong>
+            <span>ENET'Com · 2022 – 2025</span>
+          </div>
+          <div class="edu-item">
+            <strong>Preparatory Classes — Physics & Chemistry</strong>
+            <span>Faculty of Sciences of Sfax · 2020 – 2022</span>
+          </div>
+        </div>
+
+        <div class="about__fact-card">
+          <div class="about__fact-label">🌍 Languages</div>
+          <div class="about__fact-content">
+            <div class="lang-row"><span>Arabic</span><span class="lang-badge">Native</span></div>
+            <div class="lang-row"><span>French</span><span class="lang-badge">Proficient</span></div>
+            <div class="lang-row"><span>English</span><span class="lang-badge">Fluent</span></div>
+          </div>
+        </div>
+
+        <div class="about__fact-card">
+          <div class="about__fact-label">📥 Resume</div>
+          <div class="about__fact-content" style="margin-bottom:1rem">
+            Engineering background, 3 internships, 15+ projects across AI, full-stack and automation.
+          </div>
+          <a href="#" id="cvBtnAbout" download style="display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;background:var(--amber);color:var(--bg);font-size:.78rem;font-weight:600;border-radius:8px;transition:opacity .25s,transform .25s">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
           </a>
-          <a href="#" class="btn btn-ghost">
-            📄 Télécharger CV
-          </a>
         </div>
-      </div>
-      <div class="hero-image">
-        <div class="profile-card">
-          <div class="profile-img">👩‍💻</div>
-          <div class="contact-info">
-            <strong>Khouloud Bouaziz</strong>
-            <a href="mailto:khouloudbouazizidsd2@gmail.com">📧 Email</a>
-            <a href="#">💼 LinkedIn</a>
-            <a href="#">🐙 GitHub</a>
-            <p style="margin-top: 1rem; color: rgba(255,255,255,0.6)">📍 Sfax, Tunisia</p>
-          </div>
-        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="projects">
-    <div class="section-header">
-      <h2>Projets Remarquables</h2>
-      <p>Exemples de travaux académiques et professionnels avec code & démonstrations</p>
+<!-- ══════ WORK ══════ -->
+<section id="work">
+  <div class="container">
+    <p class="s-tag s-tag--teal">What I've Built</p>
+    <h2 class="s-h">Selected <em>Projects</em></h2>
+    <div class="work__intro s-sub">
+      Each project below is a story — a problem, an approach, and an outcome. Not a list of buzzwords.
     </div>
 
-    <div class="filters">
-      <button class="filter-btn active">Tous</button>
-      <button class="filter-btn">Machine Learning</button>
-      <button class="filter-btn">Web Apps</button>
-      <button class="filter-btn">IoT</button>
-      <button class="filter-btn">NLP</button>
+    <div class="projects">
+
+      <article class="project r-up">
+        <div class="project__num">01</div>
+        <div>
+          <div class="project__meta">
+            <h3 class="project__name">Smart QA — Intelligent Test Automation</h3>
+            <span class="project__year">2025</span>
+            <span class="project__cat">LLM · Full-Stack</span>
+          </div>
+          <p class="project__story">
+            At Freedom Of Dev, I faced a real challenge: QA teams spending hours writing test cases manually.
+            I built a platform where an <strong>LLM reads Azure DevOps user stories and writes the tests itself</strong>.
+            Playwright runs them live, Entra ID handles auth, and dashboards give teams instant visibility.
+            The result — dramatically less manual work, more coverage, fewer surprises in production.
+          </p>
+          <div class="project__tags">
+            <span>React</span><span>FastAPI</span><span>Quarkus</span>
+            <span>LLM</span><span>Playwright</span><span>Azure DevOps</span><span>Microsoft Entra ID</span>
+          </div>
+        </div>
+        <div class="project__actions">
+          <a href="#" class="project__btn">Code ↗</a>
+          <a href="#" class="project__btn">Demo ↗</a>
+        </div>
+      </article>
+
+      <article class="project r-up">
+        <div class="project__num">02</div>
+        <div>
+          <div class="project__meta">
+            <h3 class="project__name">Real-Time Anomaly Detection in Water Flow</h3>
+            <span class="project__year">2024</span>
+            <span class="project__cat">ML · IoT</span>
+          </div>
+          <p class="project__story">
+            Water infrastructure failures are costly — and often silent until it's too late.
+            At the Digital Research Center of Sfax, I built a system that <strong>detects leaks and pressure anomalies
+            the moment they happen</strong>, using an ensemble of Isolation Forest, LSTM, and LOF on live IoT streams.
+            Early detection, before operators even notice anything is wrong.
+          </p>
+          <div class="project__tags">
+            <span>Python</span><span>LSTM</span><span>Isolation Forest</span>
+            <span>LOF</span><span>IoT</span><span>Time Series</span>
+          </div>
+        </div>
+        <div class="project__actions">
+          <a href="#" class="project__btn">Code ↗</a>
+          <a href="#" class="project__btn">Results ↗</a>
+        </div>
+      </article>
+
+      <article class="project r-up">
+        <div class="project__num">03</div>
+        <div>
+          <div class="project__meta">
+            <h3 class="project__name">Ethical Bias Evaluation & Mitigation in ML</h3>
+            <span class="project__year">2024</span>
+            <span class="project__cat">XAI · Ethics</span>
+          </div>
+          <p class="project__story">
+            A model that's accurate but unfair isn't good enough. This project built a <strong>full fairness
+            audit pipeline</strong> — measuring bias with AIF360, explaining decisions with LIME and SHAP,
+            and offering mitigation strategies through an interactive Streamlit interface.
+            The goal: make ethical AI accessible, not just theoretical.
+          </p>
+          <div class="project__tags">
+            <span>AIF360</span><span>SHAP</span><span>LIME</span>
+            <span>scikit-learn</span><span>Streamlit</span><span>XAI</span>
+          </div>
+        </div>
+        <div class="project__actions">
+          <a href="#" class="project__btn">Code ↗</a>
+          <a href="#" class="project__btn">Paper ↗</a>
+        </div>
+      </article>
+
+      <article class="project r-up">
+        <div class="project__num">04</div>
+        <div>
+          <div class="project__meta">
+            <h3 class="project__name">NLP Emotion Classification System</h3>
+            <span class="project__year">2024</span>
+            <span class="project__cat">NLP · Deep Learning</span>
+          </div>
+          <p class="project__story">
+            Text carries emotion — and machines can learn to hear it. This end-to-end NLP pipeline takes raw text,
+            runs it through <strong>NLTK preprocessing, TF-IDF feature extraction, and an LSTM classifier</strong>,
+            then serves predictions live via Streamlit. Built to understand language as humans write it.
+          </p>
+          <div class="project__tags">
+            <span>NLTK</span><span>TF-IDF</span><span>LSTM</span>
+            <span>TensorFlow</span><span>Streamlit</span>
+          </div>
+        </div>
+        <div class="project__actions">
+          <a href="#" class="project__btn">Code ↗</a>
+          <a href="#" class="project__btn">Demo ↗</a>
+        </div>
+      </article>
+
+      <article class="project r-up">
+        <div class="project__num">05</div>
+        <div>
+          <div class="project__meta">
+            <h3 class="project__name">Solar Panel Robot Trajectory Optimizer</h3>
+            <span class="project__year">2023</span>
+            <span class="project__cat">Robotics · Optimization</span>
+          </div>
+          <p class="project__story">
+            My first internship at <strong>Enova Robotics</strong> — optimizing how autonomous robots clean solar panels.
+            I designed a Python algorithm that plans coverage paths intelligently, avoiding obstacles
+            and maximizing the surface cleaned per run. Clean panels, more energy, smarter robots.
+          </p>
+          <div class="project__tags">
+            <span>Python</span><span>Path Planning</span><span>Optimization</span><span>Robotics</span>
+          </div>
+        </div>
+        <div class="project__actions">
+          <a href="#" class="project__btn">Code ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ EXPERTISE ══════ -->
+<section id="expertise">
+  <div class="container">
+    <p class="s-tag s-tag--amber">What I Work With</p>
+    <h2 class="s-h">My <em>Toolkit</em></h2>
+
+    <div class="expertise__layout">
+
+      <div class="skill-card r-up">
+        <div class="skill-card__icon">🧠</div>
+        <div class="skill-card__title">AI & ML</div>
+        <div class="pills">
+          <span class="pill">TensorFlow</span><span class="pill">Keras</span>
+          <span class="pill">scikit-learn</span><span class="pill">OpenCV</span>
+          <span class="pill">MLflow</span><span class="pill">LSTM</span>
+          <span class="pill">Computer Vision</span><span class="pill">NLP</span>
+          <span class="pill">Generative AI</span>
+        </div>
+      </div>
+
+      <div class="skill-card r-up">
+        <div class="skill-card__icon">⚙️</div>
+        <div class="skill-card__title">Backend</div>
+        <div class="pills">
+          <span class="pill">FastAPI</span><span class="pill">Quarkus</span>
+          <span class="pill">Spring Boot</span><span class="pill">Python</span>
+          <span class="pill">Java</span><span class="pill">Scala</span>
+          <span class="pill">R</span><span class="pill">C</span>
+        </div>
+      </div>
+
+      <div class="skill-card r-up">
+        <div class="skill-card__icon">🎨</div>
+        <div class="skill-card__title">Frontend</div>
+        <div class="pills">
+          <span class="pill">React</span><span class="pill">JavaScript</span>
+          <span class="pill">HTML5</span><span class="pill">CSS3</span>
+          <span class="pill">Streamlit</span><span class="pill">Power BI</span>
+        </div>
+      </div>
+
+      <div class="skill-card r-up">
+        <div class="skill-card__icon">🚀</div>
+        <div class="skill-card__title">DevOps & Testing</div>
+        <div class="pills">
+          <span class="pill">Azure DevOps</span><span class="pill">Git</span>
+          <span class="pill">Linux</span><span class="pill">Playwright</span>
+          <span class="pill">Selenium</span><span class="pill">Robot Framework</span>
+        </div>
+      </div>
+
+      <div class="skill-card r-up">
+        <div class="skill-card__icon">🗄️</div>
+        <div class="skill-card__title">Databases</div>
+        <div class="pills">
+          <span class="pill">PostgreSQL</span><span class="pill">MongoDB</span>
+          <span class="pill">MySQL</span><span class="pill">NoSQL</span>
+        </div>
+      </div>
+
+      <div class="skill-card r-up" style="display:flex;align-items:center;justify-content:center;background:var(--amber-bg);border-color:rgba(240,180,41,.2)">
+        <div style="text-align:center">
+          <div style="font-family:'Fraunces',Georgia,serif;font-size:3.5rem;font-weight:900;color:var(--amber-2);line-height:1">15<sup style="font-size:1.5rem">+</sup></div>
+          <div style="font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-top:.5rem">Projects Delivered</div>
+        </div>
+      </div>
+
+      <div class="skill-card skill-card--wide r-up">
+        <div class="skill-card__icon">🏅</div>
+        <div class="skill-card__title">Certifications</div>
+        <div class="certs-row">
+          <div class="cert"><div class="cert__icon">☁️</div><div class="cert__info"><strong>Azure Data Fundamentals</strong><span>DP-900 · Microsoft</span></div></div>
+          <div class="cert"><div class="cert__icon">🤖</div><div class="cert__info"><strong>Azure AI Fundamentals</strong><span>AI-900 · Microsoft</span></div></div>
+          <div class="cert"><div class="cert__icon">👁️</div><div class="cert__info"><strong>Computer Vision — Industrial</strong><span>NVIDIA Deep Learning Institute</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CONTACT ══════ -->
+<section id="contact">
+  <div class="container">
+    <p class="s-tag s-tag--amber" style="justify-content:center">Get In Touch</p>
+
+    <div class="contact__wrap">
+      <div class="contact__glow"></div>
+      <h2 class="s-h" style="font-size:clamp(2.2rem,4vw,3.6rem);margin-bottom:0">
+        Let's build something<br/><em>remarkable.</em>
+      </h2>
     </div>
 
-    <div class="stats">
-      <div class="stat-card">
-        <div class="stat-number">15+</div>
-        <div class="stat-label">Projets Réalisés</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Technologies</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Stages Professionnels</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Passion</div>
-      </div>
+    <p class="contact__sub">
+      Open to internships, full-time roles, freelance projects —
+      anything where AI meets ambition.
+    </p>
+
+    <div class="contact__cta-row">
+      <a href="/cdn-cgi/l/email-protection#d0bbb8bfa5bcbfa5b4b2bfa5b1aab9aab9b4a3b4e290b7bdb1b9bcfeb3bfbd" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send me an email
+      </a>
+      <a href="#" id="cvBtnContact" download class="btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
     </div>
 
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-preview">
-          <div class="project-icon">🤖</div>
-          <div class="play-overlay">
-            <button class="play-btn">▶</button>
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag tag-react">React</span>
-            <span class="tag tag-python">FastAPI</span>
-            <span class="tag tag-ml">LLM</span>
-          </div>
-          <h3>Smart QA — Intelligent Test Automation</h3>
-          <p>Plateforme d'automatisation des tests intégrant Playwright et un LLM pour générer automatiquement des cas de test. Authentification Microsoft Entra ID, dashboards KPI.</p>
-          <div class="project-meta">
-            <span>⭐ 45 stars</span>
-            <span>🔀 12 forks</span>
-            <span>📅 Feb 2025</span>
-          </div>
-          <div class="project-actions">
-            <a href="#" class="action-btn">
-              💻 Code
-            </a>
-            <a href="#" class="action-btn">
-              ▶ Démo
-            </a>
-            <a href="#" class="action-btn">
-              🔗 Live
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-preview">
-          <div class="project-icon">💧</div>
-          <div class="play-overlay">
-            <button class="play-btn">▶</button>
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag tag-python">Python</span>
-            <span class="tag tag-ml">ML</span>
-            <span class="tag tag-api">IoT</span>
-          </div>
-          <h3>Real-Time Anomaly Detection in Water Flow</h3>
-          <p>Système de détection en temps réel des fuites et ruptures à partir de données IoT. Isolation Forest, LSTM, Local Outlier Factor.</p>
-          <div class="project-meta">
-            <span>⭐ 32 stars</span>
-            <span>📅 July 2024</span>
-          </div>
-          <div class="project-actions">
-            <a href="#" class="action-btn">
-              💻 Code
-            </a>
-            <a href="#" class="action-btn">
-              ▶ Démo
-            </a>
-            <a href="#" class="action-btn">
-              📊 Résultats
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-preview">
-          <div class="project-icon">⚖️</div>
-          <div class="play-overlay">
-            <button class="play-btn">▶</button>
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag tag-python">Python</span>
-            <span class="tag tag-ml">AIF360</span>
-            <span class="tag tag-react">Streamlit</span>
-          </div>
-          <h3>Evaluation & Mitigation of Ethical Bias</h3>
-          <p>Utilisation de AIF360, scikit-learn, LIME & SHAP pour auditer et atténuer les biais. Interface Streamlit interactive.</p>
-          <div class="project-meta">
-            <span>⭐ 28 stars</span>
-            <span>📅 Academic</span>
-          </div>
-          <div class="project-actions">
-            <a href="#" class="action-btn">
-              💻 Code
-            </a>
-            <a href="#" class="action-btn">
-              ▶ Démo
-            </a>
-            <a href="#" class="action-btn">
-              📄 Paper
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="contact__cards">
+      <a href="/cdn-cgi/l/email-protection#a8c3c0c7ddc4c7ddcccac7ddc9d2c1d2c1ccdbcc9ae8cfc5c9c1c486cbc7c5" class="contact-card r-up">
+        <div class="cc-icon">✉</div>
+        <div class="cc-info"><strong>Email</strong><span><span class="__cf_email__" data-cfemail="503b383f253c3f2534323f25312a392a393423346210373d31393c7e333f3d">[email&#160;protected]</span></span></div>
+        <span class="cc-arr">↗</span>
+      </a>
+      <a href="#" class="contact-card r-up" target="_blank">
+        <div class="cc-icon">in</div>
+        <div class="cc-info"><strong>LinkedIn</strong><span>khouloud-bouaziz</span></div>
+        <span class="cc-arr">↗</span>
+      </a>
+      <a href="#" class="contact-card r-up">
+        <div class="cc-icon">⌥</div>
+        <div class="cc-info"><strong>GitHub</strong><span>View repositories</span></div>
+        <span class="cc-arr">↗</span>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script>
-    // Create particles
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.width = Math.random() * 5 + 2 + 'px';
-      particle.style.height = particle.style.width;
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 20 + 's';
-      particle.style.animationDuration = Math.random() * 10 + 15 + 's';
-      particlesContainer.appendChild(particle);
-    }
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer__i">
+    <span class="footer__logo">KB.</span>
+    <span class="footer__copy">Sfax, Tunisia 🇹🇳 &nbsp;·&nbsp; © <span id="yr"></span> Khouloud Bouaziz</span>
+    <div class="footer__links">
+      <a href="/cdn-cgi/l/email-protection#e3888b8c968f8c9687818c9682998a998a879087d1a3848e828a8fcd808c8e">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+  </div>
+</footer>
 
-    // Filter functionality
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
