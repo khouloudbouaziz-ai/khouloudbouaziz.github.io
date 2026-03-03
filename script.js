@@ -1,64 +1,100 @@
-// Basic interactions: mobile nav, smooth scroll, video modal, year
-document.addEventListener('DOMContentLoaded', () => {
-  // year
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+'use strict';
 
-  // mobile nav toggle
-  const toggle = document.querySelector('.nav-toggle');
-  const body = document.body;
-  toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', (!expanded).toString());
-    body.classList.toggle('nav-open');
-  });
+/* ── Year ── */
+document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // smooth scroll for internal links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // close mobile nav
-      body.classList.remove('nav-open');
-    });
-  });
-
-  // VIDEO MODAL
-  const modal = document.getElementById('videoModal');
-  const modalVideo = document.getElementById('modalVideo');
-  const modalSource = document.getElementById('modalSource');
-  const closeBtn = document.querySelector('.modal-close');
-  const backdrop = document.querySelector('.modal-backdrop');
-
-  // open video when play button clicked
-  document.querySelectorAll('.play-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const videoFile = btn.getAttribute('data-video');
-      if (!videoFile) return;
-      modalSource.setAttribute('src', videoFile);
-      modalVideo.load();
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden', 'false');
-      // autoplay (optional)
-      modalVideo.play().catch(()=>{/* autoplay blocked */});
-    });
-  });
-
-  // close modal
-  function closeModal() {
-    modal.classList.remove('show');
-    modal.setAttribute('aria-hidden', 'true');
-    modalVideo.pause();
-    modalSource.setAttribute('src', '');
-    modalVideo.load();
+/* ── CV download buttons ── */
+const CV_PATH = 'cv_bouaziz_khouloud.pdf';
+['cvBtn', 'cvBtnHero', 'cvBtnAbout', 'cvBtnContact'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.setAttribute('href', CV_PATH);
+    el.setAttribute('download', 'CV_Khouloud_Bouaziz.pdf');
   }
-
-  closeBtn?.addEventListener('click', closeModal);
-  backdrop?.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
 });
+
+/* ── Auto-load real photo if available ── */
+const photoEl = document.getElementById('photoEl');
+const img = new Image();
+img.onload = () => {
+  photoEl.innerHTML = '';
+  img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:32px';
+  photoEl.appendChild(img);
+};
+img.src = 'photo.jpg'; /* replace with actual photo filename */
+
+/* ── Custom cursor ── */
+const c  = document.getElementById('c');
+const cr = document.getElementById('cr');
+let rx = 0, ry = 0, mx = 0, my = 0;
+
+if (window.matchMedia('(pointer:fine)').matches) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    c.style.left = mx + 'px';
+    c.style.top  = my + 'px';
+  });
+  (function tick() {
+    rx += (mx - rx) * .1;
+    ry += (my - ry) * .1;
+    cr.style.left = rx + 'px';
+    cr.style.top  = ry + 'px';
+    requestAnimationFrame(tick);
+  })();
+} else {
+  c.style.display = cr.style.display = 'none';
+}
+
+/* ── Navbar: pin on scroll ── */
+const nav = document.getElementById('nav');
+const handleScroll = () => nav.classList.toggle('pinned', window.scrollY > 40);
+window.addEventListener('scroll', handleScroll, { passive: true });
+handleScroll();
+
+/* ── Mobile menu toggle ── */
+const burger = document.getElementById('burger');
+burger.addEventListener('click', () => {
+  const isOpen = document.body.classList.toggle('open');
+  burger.setAttribute('aria-expanded', String(isOpen));
+});
+
+/* ── Smooth scroll + close mobile nav ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    document.body.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+/* ── Scroll reveal ── */
+const revObs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (!entry.isIntersecting) return;
+    setTimeout(() => entry.target.classList.add('on'), i * 70);
+    revObs.unobserve(entry.target);
+  });
+}, { threshold: .09, rootMargin: '0px 0px -45px 0px' });
+
+document.querySelectorAll('.r-up, .r-left').forEach(el => revObs.observe(el));
+
+/* ── Count-up animation ── */
+const cntObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el     = entry.target;
+    const target = parseInt(el.dataset.count, 10);
+    let n = 0;
+    const iv = setInterval(() => {
+      n = Math.min(n + 1, target);
+      el.textContent = n;
+      if (n >= target) clearInterval(iv);
+    }, 60);
+    cntObs.unobserve(el);
+  });
+}, { threshold: 1 });
+
+document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
