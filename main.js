@@ -98,3 +98,4 @@ const cntObs = new IntersectionObserver((entries) => {
 }, { threshold: 1 });
 
 document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
+
